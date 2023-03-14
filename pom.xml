@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+<!-- POM, Maven의 빌드 정보를 담고 있는 파일, 프로젝트의 구조와 내용 -->
+	
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- groupId : 프로젝트 제작을 책임지는 조직-->
+	<!-- artifactId : 실제 프로젝트 -->
 	<groupId>com.myspring</groupId>
 	<artifactId>pro27</artifactId>
 	<name>pro27</name>
@@ -41,6 +46,7 @@
 		</dependency>	
 		
 		<!-- Logging -->
+		<!-- slf4j 다양한 로깅 프레임 워크에 대한 추상화(인터페이스) 역할을 하는 라이브러리 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -58,6 +64,8 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- log4j 자바기반 로깅 유틸리티 -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -103,6 +111,8 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- jstl JavaServer Pages Standard Tag Library -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -110,6 +120,7 @@
 		</dependency>
 	
 		<!-- Test -->
+		<!-- junit 자바용 유닛테스트 프레임워크, 테스트시에 사용 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -145,6 +156,9 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            
+            <!--  mojo, Maven Old Java Object
+            Maven의 목표, 플러그인은 여러 목표(Mojos)로 구성됨 -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

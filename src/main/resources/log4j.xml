@@ -2,11 +2,29 @@
 <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-	<!-- Appenders -->
+	<!-- Console Appenders -->
+	<!-- 메이븐에선 프로젝트 생성 시 자동으로 log4j 라이브러리가 설치됨-->
+	<!-- ConsoleAppender org.apache.log4j.ConsoleAppender 클래스, 콘솔에 로그 메시지를 출력 -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
+		<!-- 
+		%-5p: 5칸 왼쪽 끝에 위치 + : 로그 레벨 이름 출력  
+		%c - 전체 패키지 이름이나 전체 파일 이름 출력   concatenate + -
+		%n 줄바꿈 -->
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- DailyRollingAppender Appenders -->
+	<appender name="dailyFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- <param name="File" value="C:\\spring\\log\\output.log" /> -->
+		<param name="File" value="D:\\409\\sts3-workspace\\pro27\\output.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="DatePattern" value="'.'yyyy-MM-dd" />
+			<!-- F 파일 이름, L 라인 수   -->
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}][%-5p](%F:%L)-%m%n" />
 		</layout>
 	</appender>
 	
@@ -36,6 +54,7 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+		<appender-ref ref="dailyFileAppender" />
 	</root>
 	
 </log4j:configuration>
