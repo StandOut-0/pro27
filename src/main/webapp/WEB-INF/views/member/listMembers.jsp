@@ -15,8 +15,12 @@
 <title>회원 정보 출력창</title>
 </head>
 <body>
+
+<p class="title">회원 정보</p>
+<div class="article-outer">
+
 <table border="1"  align="center"  width="80%">
-    <tr align="center"   bgcolor="lightgreen">
+    <tr align="center"   bgcolor="#e1f1ff">
       <td ><b>아이디</b></td>
       <td><b>비밀번호</b></td>
       <td><b>이름</b></td>
@@ -36,6 +40,9 @@
     </tr>
   </c:forEach>   
 </table>
-<a  href="${contextPath}/member/memberForm.do"><h1 style="text-align:center">회원가입</h1></a>
+</div>
+<div class="text-center">
+<a class="btn" href="${contextPath}/member/memberForm.do">회원가입</a>
+</div>
 </body>
 </html>
